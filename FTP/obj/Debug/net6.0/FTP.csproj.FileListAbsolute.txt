@@ -1,0 +1,15 @@
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\bin\Debug\net6.0\FTP.exe
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\bin\Debug\net6.0\FTP.deps.json
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\bin\Debug\net6.0\FTP.runtimeconfig.json
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\bin\Debug\net6.0\FTP.dll
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\bin\Debug\net6.0\FTP.pdb
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.csproj.AssemblyReference.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.AssemblyInfoInputs.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.AssemblyInfo.cs
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.csproj.CoreCompileInputs.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.dll
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\refint\FTP.dll
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.pdb
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\FTP.genruntimeconfig.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\FTP\obj\Debug\net6.0\ref\FTP.dll

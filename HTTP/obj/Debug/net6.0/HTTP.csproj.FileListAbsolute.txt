@@ -1,0 +1,15 @@
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\bin\Debug\net6.0\HTTP.exe
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\bin\Debug\net6.0\HTTP.deps.json
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\bin\Debug\net6.0\HTTP.runtimeconfig.json
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\bin\Debug\net6.0\HTTP.dll
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\bin\Debug\net6.0\HTTP.pdb
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.csproj.AssemblyReference.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.AssemblyInfoInputs.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.AssemblyInfo.cs
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.csproj.CoreCompileInputs.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.dll
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\refint\HTTP.dll
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.pdb
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\HTTP.genruntimeconfig.cache
+C:\Users\Дмитрий Сергеевич\Desktop\СиТ\LAB3\HTTP\obj\Debug\net6.0\ref\HTTP.dll

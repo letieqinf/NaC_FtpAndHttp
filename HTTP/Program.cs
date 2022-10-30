@@ -18,10 +18,29 @@ namespace HTTP
             httpHandler.InitConnection();
             Console.Write(httpHandler.Headers);
             Console.WriteLine(httpHandler.Body);
-            
-            var links = httpHandler.GetLinks();
+
+            var links = GetLinks(httpHandler.Body);
             foreach (var link in links)
                 Console.WriteLine(link);
+        }
+
+        private static IEnumerable<string> GetLinks(string bodyText)
+        {
+            var regex = new Regex(@"(?inx)
+                                    <a \s [^>]*
+                                        href \s* = \s*
+                                            (?<q> ['""] )
+                                                (?<url> [^""##]+ )
+                                            \k<q>
+                                    [^>]* >");
+            
+            var matches = regex.Matches(bodyText);
+
+            var links = new string[matches.Count];
+            for (var i = 0; i < matches.Count; i++)
+                links[i] = matches[i].Groups["url"].Value;
+            
+            return links;
         }
     }
 }

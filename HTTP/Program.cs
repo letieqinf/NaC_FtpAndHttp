@@ -17,11 +17,14 @@ namespace HTTP
             
             httpHandler.InitConnection();
             Console.Write(httpHandler.Headers);
-            Console.WriteLine(httpHandler.Body);
+            // Console.WriteLine(httpHandler.Body);
 
             var links = GetLinks(httpHandler.Body);
             foreach (var link in links)
-                Console.WriteLine(link);
+                 Console.WriteLine(link);
+
+            var content = httpHandler.GetByLink("/wiki/Wikipedia:Contents");
+            // Console.WriteLine(content);
         }
 
         private static IEnumerable<string> GetLinks(string bodyText)

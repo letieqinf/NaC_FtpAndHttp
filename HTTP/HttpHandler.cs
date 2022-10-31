@@ -44,7 +44,7 @@ namespace HTTP
                 SendCommand(cmd);
 
             Headers = GetHeaders();
-            Body = GetBody();
+            Body = GetBody(Headers);
         }
 
         private void SendCommand(string cmd)
@@ -80,12 +80,12 @@ namespace HTTP
         
         public string? Headers { get; private set; }
 
-        private string GetBody()
+        private string GetBody(string headers)
         {
             if (Headers == null)
                 throw new Exception();
             
-            var contentLength = Regex.Match(Headers, @"\S?ontent-\S?ength: \d+\r\n").Value;
+            var contentLength = Regex.Match(headers, @"\S?ontent-\S?ength: \d+\r\n").Value;
             if (contentLength == "")
             {
                 string line;
@@ -117,25 +117,21 @@ namespace HTTP
             return content.ToString();
         }
 
-        public string[] GetLinks()
+        public string? GetByLink(string link)
         {
-            var regex = new Regex(@"(?inx)
-                                    <a \s [^>]*
-                                        href \s* = \s*
-                                            (?<q> ['""] )
-                                                (?<url> [^""##]+ )
-                                            \k<q>
-                                    [^>]* >");
+            var command = $"GET {link} HTTP/1.1\r\n" + (link[..8] != "https://" ? $"HOST: {Host}\r\n\r\n" : "\r\n");
+            SendCommand(command);
             
-            var matches = regex.Matches(Body);
+            var headers = GetHeaders();
+            var body = GetBody(headers);
 
-            var links = new string[matches.Count];
-            for (int i = 0; i < matches.Count; i++)
-                links[i] = matches[i].Groups["url"].Value;
+            var file = new FileStream(@"..\..\..\Downloads\downloaded.html", FileMode.Create);
+            file.Write(Encoding.ASCII.GetBytes(body));
+            file.Close();
             
-            return links;
+            return body;
         }
-
+        
         public string? Body { get; private set; }
     }
 }

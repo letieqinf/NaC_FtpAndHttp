@@ -20,10 +20,10 @@ namespace HTTP
             // Console.WriteLine(httpHandler.Body);
 
             var links = GetLinks(httpHandler.Body);
-            foreach (var link in links)
-                 Console.WriteLine(link);
+            // foreach (var link in links)
+            //      Console.WriteLine(link);
 
-            var content = httpHandler.GetByLink("/wiki/Wikipedia:Contents");
+            var content = httpHandler.GetByLink("https://foundation.wikimedia.org/wiki/Privacy_policy");
             // Console.WriteLine(content);
         }
 

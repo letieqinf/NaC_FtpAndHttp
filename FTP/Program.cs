@@ -21,9 +21,16 @@ namespace FTP
             var list = ftpClient.ReadLines("LIST");
             Console.WriteLine(list + '\n');
             
-            ftpClient.MoveTo("ucarp");
+            const string directory = "ucarp";
             
-            var fileContent = ftpClient.ReadLines("RETR NEWS");
+            ftpClient.MoveTo(directory);
+            
+            const string fileToDownload = "NEWS";
+
+            var date = ftpClient.GetModDate(fileToDownload);
+            Console.WriteLine(fileToDownload + " modification date: " + date + '\n');
+            
+            var fileContent = ftpClient.ReadLines($"RETR {fileToDownload}");
             Console.WriteLine(fileContent + '\n');
             
             

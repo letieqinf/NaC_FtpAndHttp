@@ -130,6 +130,18 @@ namespace FTP
             Console.WriteLine("Moving failed.\n");
         }
 
+        public string GetModDate(string name)
+        {
+            SendCommand(_clientStream, $"MDTM {name}\r\n");
+            var result = GetCommandResponse(_clientStream);
+            
+            var rawTime = result[4..];
+            var formattedTime = $"{rawTime[..4]}.{rawTime[4..6]}.{rawTime[6..8]} " +
+                                    $"{rawTime[8..10]}:{rawTime[10..12]}:{rawTime[12..14]}";
+            
+            return formattedTime;
+        }
+
         public void Close()
         {
             SendCommand(_clientStream, "QUIT\r\n");

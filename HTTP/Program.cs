@@ -14,7 +14,7 @@ namespace HTTP
             
             var page = httpHandler.Get("/wiki/Main_Page");
             Console.Write(page.Headers);
-            Console.Write(page.Body + '\n');
+            Console.WriteLine(page.Body + '\n');
 
             var file = new FileStream(@"..\..\..\Downloads\downloaded.html", FileMode.Create);
             file.Write(Encoding.ASCII.GetBytes(page.Body));

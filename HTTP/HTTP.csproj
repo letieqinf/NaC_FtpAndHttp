@@ -11,4 +11,9 @@
       <Folder Include="Downloads" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="HttpHeaders.cs" />
+      <Compile Remove="HttpHandler_proto.cs" />
+    </ItemGroup>
+
 </Project>

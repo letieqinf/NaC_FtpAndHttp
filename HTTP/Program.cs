@@ -10,28 +10,27 @@ namespace HTTP
     {
         private static void Main(string[] args)
         {
-            var httpHandler = new HttpHandler("en.wikipedia.org", 443)
-            {
-                Page = "/wiki/Main_Page"
-            };
+            var httpHandler = new HttpHandler("en.wikipedia.org", 443);
             
-            httpHandler.InitConnection();
-            Console.Write(httpHandler.Headers);
-            // Console.WriteLine(httpHandler.Body);
+            var page = httpHandler.Get("/wiki/Main_Page");
+            Console.Write(page.Headers);
+            Console.Write(page.Body + '\n');
 
-            var links = GetLinks(httpHandler.Body);
-            // foreach (var link in links)
-            //      Console.WriteLine(link);
+            var file = new FileStream(@"..\..\..\Downloads\downloaded.html", FileMode.Create);
+            file.Write(Encoding.ASCII.GetBytes(page.Body));
+            file.Close();
+            Console.WriteLine("File downloaded.html was created successfully.\n");
 
-            var content = httpHandler.GetByLink("https://foundation.wikimedia.org/wiki/Privacy_policy");
-            // Console.WriteLine(content);
+            var images = GetImg(page.Body);
+            foreach (var img in images)
+                Console.WriteLine(img);
         }
 
-        private static IEnumerable<string> GetLinks(string bodyText)
+        private static IEnumerable<string> GetImg(string bodyText)
         {
             var regex = new Regex(@"(?inx)
-                                    <a \s [^>]*
-                                        href \s* = \s*
+                                    <img \s [^>]*
+                                        src \s* = \s*
                                             (?<q> ['""] )
                                                 (?<url> [^""##]+ )
                                             \k<q>

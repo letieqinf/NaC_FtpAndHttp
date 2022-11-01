@@ -24,8 +24,8 @@ namespace HTTP
         
         public string Host { get; private set; }
         public int Port { get; private set; }
-        private TcpClient _client;
-        private Stream _clientStream;
+        private readonly TcpClient _client;
+        private readonly Stream _clientStream;
 
         public HttpHandler(string host, int port)
         {
@@ -127,6 +127,12 @@ namespace HTTP
             }
 
             return content.ToString();
-         }
+        }
+        
+        public void Close()
+        {
+            _clientStream.Close();
+            _client.Close();
+        }
     }
 }

@@ -107,7 +107,7 @@ namespace FTP
             if (cmdSplit[0] != "RETR")
                 return strContent;
             
-            var file = new FileStream(@$"..\..\..\Downloads\{cmdSplit[1]}", FileMode.Create);
+            var file = new FileStream(@$"../../../Downloads/{cmdSplit[1]}", FileMode.Create);
             file.Write(Encoding.ASCII.GetBytes(strContent));
             file.Close();
             

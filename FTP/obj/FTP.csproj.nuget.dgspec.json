@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/NaC_FtpAndHttp/FTP/FTP.csproj": {}
+    "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/FTP/FTP.csproj": {}
   },
   "projects": {
-    "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/NaC_FtpAndHttp/FTP/FTP.csproj": {
+    "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/FTP/FTP.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/NaC_FtpAndHttp/FTP/FTP.csproj",
+        "projectUniqueName": "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/FTP/FTP.csproj",
         "projectName": "FTP",
-        "projectPath": "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/NaC_FtpAndHttp/FTP/FTP.csproj",
+        "projectPath": "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/FTP/FTP.csproj",
         "packagesPath": "/home/letieqinf/.nuget/packages/",
-        "outputPath": "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/NaC_FtpAndHttp/FTP/obj/",
+        "outputPath": "/home/letieqinf/Desktop/University/Nets/L3. HTTP and FTP/FTP/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/letieqinf/.nuget/NuGet/NuGet.Config"

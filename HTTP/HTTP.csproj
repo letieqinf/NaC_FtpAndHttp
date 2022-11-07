@@ -8,12 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Downloads" />
+      <Compile Remove="HttpHeaders.cs" />
+      <Compile Remove="HttpHandler_proto.cs" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Remove="HttpHeaders.cs" />
-      <Compile Remove="HttpHandler_proto.cs" />
+      <Folder Include="Downloads" />
     </ItemGroup>
 
 </Project>

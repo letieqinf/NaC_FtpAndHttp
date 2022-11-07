@@ -16,7 +16,7 @@ namespace HTTP
             Console.Write(page.Headers);
             Console.WriteLine(page.Body + '\n');
 
-            var file = new FileStream(@"..\..\..\Downloads\downloaded.html", FileMode.Create);
+            var file = new FileStream(@"../../../Downloads/downloaded.html", FileMode.Create);
             file.Write(Encoding.ASCII.GetBytes(page.Body));
             file.Close();
             Console.WriteLine("File downloaded.html was created successfully.\n");

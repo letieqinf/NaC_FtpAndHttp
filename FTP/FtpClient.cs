@@ -15,6 +15,8 @@ namespace FTP
         private readonly NetworkStream _clientStream;
         private TcpClient? _dataReceiver;
         private NetworkStream? _receiverStream;
+        
+        private string? Type { get; set; }
 
         public FtpClient(string host, int port) : base()
         {
@@ -61,7 +63,8 @@ namespace FTP
         }
 
         public void SetType(string type)
-        { 
+        {
+            Type = type;
             SendCommand(_clientStream, $"TYPE {type}\r\n");
             GetCommandResponse(_clientStream);
         }
@@ -88,30 +91,56 @@ namespace FTP
                 throw new Exception();
             
             SendCommand(_clientStream, cmd + "\r\n");
-            GetCommandResponse(_clientStream);
-            GetCommandResponse(_clientStream);
-
+            var response = GetCommandResponse(_clientStream);
+            if (!response.Contains("150-"))
+                Console.WriteLine(GetCommandResponse(_clientStream));
+            
             var buffer = new byte[1024];
-            var content = new StringBuilder();
+            var cmdSplit = cmd.Split(" ");
+
+            if (Type == "A" || cmdSplit[0] == "LIST")
+            {
+                var content = new StringBuilder();
+                do
+                {
+                    var result = _receiverStream.Read(buffer);
+                    if (result == 0)
+                        break;
+                    content.Append(Encoding.ASCII.GetString(buffer[..result]));
+                    Array.Clear(buffer);
+                } while (true);
+                var strContent = content.ToString()[..^2];
+
+                if (cmdSplit[0] != "RETR")
+                    return strContent;
+            
+                var file = new FileStream(@$"../../../Downloads/{cmdSplit[1]}", FileMode.Create);
+                file.Write(Encoding.ASCII.GetBytes(strContent));
+                file.Close();
+                
+                GetCommandResponse(_clientStream);
+
+                return $"{cmdSplit[1]} was downloaded.";
+            }
+
+            var binaryFile = new FileStream(@$"../../../Downloads/{cmdSplit[1]}", FileMode.OpenOrCreate);
+            var binaryWriter = new BinaryWriter(binaryFile);
             
             do
             {
                 var result = _receiverStream.Read(buffer);
-                content.Append(Encoding.ASCII.GetString(buffer[..result]));
+                if (result == 0)
+                    break;
+                binaryWriter.Write(buffer, 0, result);
                 Array.Clear(buffer);
-            } while (_receiverStream.DataAvailable);
+            } while (true);
+
+            binaryWriter.Close();
+            binaryFile.Close();
             
-            var strContent = content.ToString()[..^2];
-            
-            var cmdSplit = cmd.Split(" ");
-            if (cmdSplit[0] != "RETR")
-                return strContent;
-            
-            var file = new FileStream(@$"..\..\..\Downloads\{cmdSplit[1]}", FileMode.Create);
-            file.Write(Encoding.ASCII.GetBytes(strContent));
-            file.Close();
-            
-            return strContent;
+            GetCommandResponse(_clientStream);
+
+            return $"{cmdSplit[1]} was downloaded.";
         }
 
         public void MoveTo(string dir)
@@ -134,6 +163,9 @@ namespace FTP
         {
             SendCommand(_clientStream, $"MDTM {name}\r\n");
             var result = GetCommandResponse(_clientStream);
+            
+            if (result[..3] == "550")
+                return "Unable to check";
             
             var rawTime = result[4..];
             var formattedTime = $"{rawTime[..4]}.{rawTime[4..6]}.{rawTime[6..8]} " +
